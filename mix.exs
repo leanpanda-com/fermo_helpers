@@ -1,18 +1,23 @@
 defmodule FermoHelpers.MixProject do
   use Mix.Project
 
+  @version "0.5.0"
+  @git_origin "https://github.com/leanpanda-com/fermo_helpers"
+
   def project do
     [
       app: :fermo_helpers,
-      version: "0.3.0",
+      version: @version,
       elixir: "~> 1.9",
       description: "Helper functions for the Fermo static site generator",
       package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: [
-        main: "FermoHelpers",
-        extras: ["README.md"]
+        main: "readme",
+        extras: ["README.md"],
+        source_ref: "v#{@version}",
+        source_url: @git_origin
       ],
     ]
   end
@@ -25,6 +30,7 @@ defmodule FermoHelpers.MixProject do
 
   defp deps do
     [
+      {:calendar, "~> 1.0.0"},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false}
     ]
   end
@@ -33,7 +39,7 @@ defmodule FermoHelpers.MixProject do
     %{
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/leanpanda-com/fermo_helpers"
+        "GitHub" => @git_origin
       },
       maintainers: ["Joe Yates"]
     }
