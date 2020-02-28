@@ -32,7 +32,9 @@ defmodule FermoHelpers.MixProject do
   defp deps do
     [
       {:calendar, "~> 1.0.0"},
-      {:ex_doc, "~> 0.19", only: :dev, runtime: false}
+      {:deep_merge, "~> 1.0"},
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      {:morphix, "~> 0.0.7"}
     ]
   end
 
