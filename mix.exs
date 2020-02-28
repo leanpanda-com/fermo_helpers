@@ -1,7 +1,7 @@
 defmodule FermoHelpers.MixProject do
   use Mix.Project
 
-  @version "0.7.0"
+  @version "0.7.1"
   @git_origin "https://github.com/leanpanda-com/fermo_helpers"
 
   def project do
@@ -34,7 +34,9 @@ defmodule FermoHelpers.MixProject do
       {:calendar, "~> 1.0.0"},
       {:deep_merge, "~> 1.0"},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:morphix, "~> 0.0.7"}
+      {:jason, "~> 1.1"},
+      {:morphix, "~> 0.0.7"},
+      {:yaml_elixir, "~> 1.3.0"}
     ]
   end
 
