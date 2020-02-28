@@ -1,7 +1,7 @@
 defmodule FermoHelpers.MixProject do
   use Mix.Project
 
-  @version "0.6.0"
+  @version "0.7.0"
   @git_origin "https://github.com/leanpanda-com/fermo_helpers"
 
   def project do
