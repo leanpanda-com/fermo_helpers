@@ -11,6 +11,7 @@ defmodule FermoHelpers.MixProject do
       elixir: "~> 1.9",
       description: "Helper functions for the Fermo static site generator",
       package: package(),
+      build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: [
