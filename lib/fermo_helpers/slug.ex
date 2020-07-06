@@ -55,7 +55,7 @@ defmodule FermoHelpers.Slug do
   def from(id, title, options \\ []) do
     max_text = options[:max_text] || @max_text
     clean =
-      String.normalize(title, :nfd)
+      :unicode.characters_to_nfd_binary(title)
       |> String.replace(@transform_to_hyphen, "-")
       |> String.replace("ø", "o")
       |> String.replace(~r/[^0-9\-A-z]/u, "")
