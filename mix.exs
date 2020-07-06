@@ -9,14 +9,16 @@ defmodule FermoHelpers.MixProject do
       app: :fermo_helpers,
       version: @version,
       elixir: "~> 1.9",
+      name: "Fermo Helpers",
       description: "Helper functions for the Fermo static site generator",
       package: package(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: [
-        main: "readme",
         extras: ["README.md"],
+        homepage_url: @git_origin,
+        main: "readme",
         source_ref: "v#{@version}",
         source_url: @git_origin
       ],
