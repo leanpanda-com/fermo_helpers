@@ -6,8 +6,11 @@ defmodule FermoHelpers.Assets do
   def image_path("https://" <> _path = url) do
     url
   end
+  def image_path("/" <> filename) do
+    Assets.path!("/images/#{filename}")
+  end
   def image_path(filename) do
-    Assets.path!("images/#{filename}")
+    Assets.path!("/images/#{filename}")
   end
 
   def javascript_path(name) do

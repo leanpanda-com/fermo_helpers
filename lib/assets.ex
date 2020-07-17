@@ -24,7 +24,15 @@ defmodule Assets do
     manifest = "build/manifest.json"
     |> File.read!
     |> Jason.decode!
-    |> Enum.into(%{}, fn {k, v} -> {k, "/" <> v} end)
+    |> Enum.into(
+      %{},
+      fn
+        {"/" <> k, "/" <> v} -> {"/" <> k, "/" <> v}
+        {"/" <> k,        v} -> {"/" <> k, "/" <> v}
+        {       k, "/" <> v} -> {"/" <> k, "/" <> v}
+        {       k,        v} -> {"/" <> k, "/" <> v}
+      end
+    )
     GenServer.call(:assets, {:put, manifest})
     {:ok}
   end
@@ -36,8 +44,11 @@ defmodule Assets do
     GenServer.call(:assets, {:manifest})
   end
 
+  def path("/" <> name) do
+    GenServer.call(:assets, {:path, "/" <> name})
+  end
   def path(name) do
-    GenServer.call(:assets, {:path, name})
+    GenServer.call(:assets, {:path, "/" <> name})
   end
 
   def path!(name) do
