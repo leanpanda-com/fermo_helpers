@@ -1,4 +1,8 @@
 defmodule FermoHelpers.Assets do
+  def asset_path(filename) do
+    Assets.path!(filename)
+  end
+
   def font_path(filename) do
     Assets.path!("fonts/#{filename}")
   end
