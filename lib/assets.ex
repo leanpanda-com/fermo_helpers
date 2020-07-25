@@ -8,6 +8,8 @@ defmodule Assets do
   in order to provide asset name mapping.
   """
 
+  @webpack_config_path "webpack.config.js"
+
   def init(args) do
     {:ok, args}
   end
@@ -17,7 +19,11 @@ defmodule Assets do
   end
 
   def build() do
-    System.cmd("yarn", ["run", "webpack"]) |> handle_build_result()
+    if File.exists?(@webpack_config_path) do
+      System.cmd("yarn", ["run", "webpack"]) |> handle_build_result()
+    else
+      {:ok}
+    end
   end
 
   defp handle_build_result({_output, 0}) do
